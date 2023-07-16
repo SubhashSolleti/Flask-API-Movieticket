@@ -1,0 +1,46 @@
+{% extends "base.html" %} {% block title %}Find similar film{% endblock %} {%
+block style %}
+<style>
+  body {
+    background-color: #000000;
+  }
+</style>
+{% endblock %} {% block content %}
+
+<div class="container">
+  <div class="px-4 py-2 my-3 text-center text-dark">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title"><strong>Welcome, {{user.username}}!</strong></h4>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add new sections here -->
+  <div class="row my-3">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Your Watchlist</h5>
+          <p class="card-text">
+            Here are the movies you have added to your watchlist:
+          </p>
+          <!-- Add watchlist content here -->
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Recommended Movies</h5>
+          <p class="card-text">
+            Based on your preferences, here are some recommended movies:
+          </p>
+          <!-- Add recommended movies content here -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

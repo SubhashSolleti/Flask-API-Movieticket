@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block title %}Find similar film{% endblock %} {%
+block style %}
+<link rel="stylesheet" type="text/css" href="/static/css/home.css" />
+{% endblock %} {% block content %}
+
+<div class="px-4 py-5 my-5 text-center text-light">
+  <h1 class="display-5 fw-bold">Movie Similar To</h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4">
+      Discover comparable movies with a few simple clicks...
+    </p>
+  </div>
+</div>
+
+<div class="container rounded" style="width: 400px">
+  <form method="post">
+    <div class="input-group mb-3">
+      <input
+        autofocus
+        type="text"
+        id="title"
+        name="title"
+        class="form-control"
+        placeholder="Enter a movie title"
+        aria-label="Recipient's username"
+        aria-describedby="button-addon2"
+        required
+      />
+      <button class="btn btn-success" type="submit" id="button-addon2">
+        Search
+      </button>
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+    </div>
+    <input type="hidden" name="type" value="movie" />
+  </form>
+</div>
+
+{% endblock %}

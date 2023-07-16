@@ -1,0 +1,75 @@
+{% block style %}
+<style>
+  /* Glassmorphic styles */
+  .glassmorphic-navbar {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .glassmorphic-navbar .navbar-brand,
+  .glassmorphic-navbar .navbar-nav .nav-link {
+    color: #ffffff;
+  }
+
+  .glassmorphic-navbar .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .glassmorphic-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+
+  .glassmorphic-navbar .navbar-nav .nav-link:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .glassmorphic-navbar .navbar-nav .nav-link.active {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+</style>
+{% endblock %}
+
+<div
+  class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top glassmorphic-navbar"
+>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">MoVista</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/popular/movies">Popular</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/">About</a>
+        </li>
+      </ul>
+      <div class="navbar-nav">
+        {% if user.is_authenticated %}
+        <a class="nav-link" href="/profile">Profile</a>
+        <a class="nav-link" href="/logout">Logout</a>
+        {% else %}
+        <a class="nav-link" href="/login">Login</a>
+        <a class="nav-link" href="/signup">Sign up</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
